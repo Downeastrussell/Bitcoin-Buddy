@@ -1,0 +1,82 @@
+{
+  "users": [
+    {
+      "id": 3,
+      "name": "Satoshi 'Dorian' Nakamoto",
+      "password": "animal execitioner",
+      "email": "halFinney@mtgox.com",
+      "picture": "https://cbsnews1.cbsistatic.com/hub/i/2014/03/07/6adf8bab-bb15-4ae4-a3d7-bce96233f6e0/ap407286670412.jpg"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 7,
+      "sell": "Bitcoin",
+      "buy": "usd",
+      "date": "Mar 24, 2019 17:05:00 UTC",
+      "usd": 3993.135,
+      "btc": "0",
+      "userId": "3",
+      "profit": 0.31330000000025393,
+      "sold": true
+    },
+    {
+      "id": 8,
+      "sell": "Bitcoin",
+      "buy": "usd",
+      "date": "Mar 24, 2019 16:57:00 UTC",
+      "usd": 3993.2233,
+      "btc": "0",
+      "userId": "3",
+      "profit": 0.40160000000014406,
+      "sold": true
+    },
+    {
+      "id": 9,
+      "sell": "Bitcoin",
+      "buy": "usd",
+      "date": "Mar 24, 2019 17:11:00 UTC",
+      "usd": 3993.7117,
+      "btc": "0",
+      "userId": "3",
+      "profit": 0.8899999999998727,
+      "sold": true
+    },
+    {
+      "id": 10,
+      "sell": "Bitcoin",
+      "buy": "usd",
+      "date": "Mar 24, 2019 17:18:00 UTC",
+      "usd": 3993.3783,
+      "btc": "0",
+      "userId": "3",
+      "profit": -0.33339999999998327,
+      "sold": true
+    },
+    {
+      "id": 11,
+      "sell": "Bitcoin",
+      "buy": "usd",
+      "date": "Mar 24, 2019 17:35:00 UTC",
+      "usd": 3993.1233,
+      "btc": "0",
+      "userId": "3",
+      "profit": -0.04499999999961801,
+      "sold": true
+    },
+    {
+      "sell": "usd",
+      "buy": "Bitcoin",
+      "date": "Mar 24, 2019 17:35:00 UTC",
+      "usd": "1000000",
+      "btc": "250.43053391314012",
+      "userId": "3",
+      "profit": "0",
+      "sold": false,
+      "id": 12
+    }
+  ],
+  "prices": [
+    {}
+  ]
+}
