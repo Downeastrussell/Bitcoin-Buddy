@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import btcSymbol from "../../importedMedia/blackBTC1.png"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./buy.css"
 

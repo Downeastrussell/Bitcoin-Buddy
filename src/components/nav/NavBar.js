@@ -15,7 +15,7 @@ class NavBar extends Component {
                         <Link className="nav-link" to="/"><i className="material-icons">  account_balance </i>Account Overview</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/data"><i className="material-icons">  show_chart </i>Preformance/Graphs</Link>
+                        <Link className="nav-link" to="/charts"><i className="material-icons">  show_chart </i>Preformance/Graphs</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/transactions"><i className="material-icons">  folder_shared </i>Transaction History</Link>

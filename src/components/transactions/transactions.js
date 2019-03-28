@@ -71,8 +71,8 @@ export default class TransactionList extends Component {
                                 <tr key={txn.id}>
                                     <td >{(txn.buy).toUpperCase()}</td>
                                     <td >{txn.date}</td>
-                                    <td >{txn.usd}</td>
-                                    <td >{txn.btc}</td>
+                                    <td >{Number(txn.usd).toFixed(2)}</td>
+                                    <td >{Number(txn.btc).toFixed(8)}</td>
                                     <td >{(currentBTCprice * txn.btc).toFixed(2)}</td>
                                     <td >{Number(txn.profit).toFixed(2)}</td>
                                     <td >{((txn.usd+txn.profit)*txn.sold).toFixed(2)}</td>
@@ -102,7 +102,7 @@ export default class TransactionList extends Component {
 
                 </table>
                 <h2>USD in Account: ${(totalUSDavaliable).toFixed(2)} </h2>
-                <h2>BTC in Account: {(totalBTC).toFixed(8)}</h2>
+                <h2>BTC in Account: {Number(totalBTC).toFixed(8)}</h2>
                 <h2>Total Value of BTC: ${(totalBTC*currentBTCprice).toFixed(2)} </h2>
                 {/* <h2>Profit: {profit}</h2> */}
                 <h1>Total Value of Account: {((totalBTC*currentBTCprice)+totalUSDavaliable).toFixed(2)}</h1>

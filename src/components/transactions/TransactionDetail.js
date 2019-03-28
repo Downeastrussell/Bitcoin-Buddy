@@ -54,10 +54,10 @@ export default class TransactionDetail extends Component {
             <div key={txn.id} className="card">
                 <div className="card-body">
                     <h4><img src={btc} alt="btc"></img></h4>
-                    <h6 className="card-title">Sold for ${txn.usd}</h6>
+                    <h6 className="card-title">Sold for ${Number(txn.usd).toFixed(2)}</h6>
                     <h6 className="card-title">Bought on {txn.date}</h6>
                     <h6 className="card-title">Sold on: {btcDate}</h6>
-                    <h6>Profit/Loss:{txn.profit}</h6>
+                    <h6>Profit/Loss:${Number(txn.profit).toFixed(2)}</h6>
                     <div className="buyButton">
                     <button type="button"
                             className="btn btn-success"

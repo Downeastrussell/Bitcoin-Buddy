@@ -1,0 +1,10 @@
+.login{
+    background-image: url("../../importedMedia/bitcoin-symbol.jpg");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 800px;
+    width: 1350px
+
+}

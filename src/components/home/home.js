@@ -76,11 +76,11 @@ export default class HomePage extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>${(totalBTC * btcPrice) + totalUSDavaliable}</td>
-                            <td>${totalUSDavaliable}</td>
-                            <td><img src={btc1} alt="btc"></img>{totalBTC}</td>
-                            <td>{(totalUSDspent)-(totalBTC*btcPrice)}</td>
-                            <td>{totalProfit}</td>
+                            <td>${((totalBTC * btcPrice) + totalUSDavaliable).toFixed(2)}</td>
+                            <td>${(totalUSDavaliable).toFixed(2)}</td>
+                            <td><img src={btc1} alt="btc"></img>{(totalBTC).toFixed(8)}</td>
+                            <td>${((totalUSDspent)-(totalBTC*btcPrice)).toFixed(2)}</td>
+                            <td>${(totalProfit).toFixed(2)}</td>
                         </tr>
                     </tbody>
                     {/* <tbody>
