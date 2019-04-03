@@ -1,3 +1,9 @@
+                Bitcoin Buddy solves a problem for reporting Bitcoin in your yearly tax forms.
+
+
+Bitcoin is a brand-new way of transmitting money without the need for traditional banking networks, as well as a means to store data in a transparent and unalterable way, which means once you add data to the Bitcoin Network, it can never be erased or altered.
+
+
 Cryptocurrency held as a capital asset is taxed as property. ... This means that if you are holding on to virtual currency, but haven't sold it, then you don't have to report it on your taxes. However, when you sell or exchange Bitcoin, you have to report the gain or loss on your taxes, just like any other capital asset.
 
 Cryptocurrency has recently attracted attention from investors in all walks of life. Unfortunately, the legal and regulatory environment for cryptocurrency has not yet been fully developed, including in the area of taxation.
