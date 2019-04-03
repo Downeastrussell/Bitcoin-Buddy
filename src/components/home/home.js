@@ -64,7 +64,7 @@ export default class HomePage extends Component {
 
                 </div>
 
-                <table class="cinereousTable">
+                <table className="cinereousTable">
                     <thead>
                         <tr>
                             <th>Total Account Balance($USD): </th>
