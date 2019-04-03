@@ -1,4 +1,4 @@
-                Bitcoin Buddy solves a problem for reporting Bitcoin in your yearly tax forms.
+                Bitcoin Buddy helps users track, manage, and report their Bitcoin investments for tax purposes!
 
 
 Bitcoin is a brand-new way of transmitting money without the need for traditional banking networks, as well as a means to store data in a transparent and unalterable way, which means once you add data to the Bitcoin Network, it can never be erased or altered.
