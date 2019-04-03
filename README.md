@@ -1,68 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cryptocurrency held as a capital asset is taxed as property. ... This means that if you are holding on to virtual currency, but haven't sold it, then you don't have to report it on your taxes. However, when you sell or exchange Bitcoin, you have to report the gain or loss on your taxes, just like any other capital asset.
 
-## Available Scripts
+Cryptocurrency has recently attracted attention from investors in all walks of life. Unfortunately, the legal and regulatory environment for cryptocurrency has not yet been fully developed, including in the area of taxation.
 
-In the project directory, you can run:
+The IRS views cryptocurrency as property and not as a currency. Consequently, for investors, it will be regarded as a capital asset for tax purposes, which means that a key component of correctly determining the tax treatment of a cryptocurrency investment will be establishing its basis.
 
-### `npm start`
+However, available data from the exchanges or other sources will often not be sufficient to pinpoint the exact BTC/USD exchange rate at the time of the exchange. For these instances, when establishing a basis, the investor will need to use a consistent standard for determining the exchange rate. A common choice for this purpose is the day's closing prices, which are based on the exchange rates at midnight UTC, as data are readily available and generally reflect the day's trading activity.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Cryptocurrency exchanges are not currently understood to be included in the scope of a "broker" as defined by Sec. 6045 and related regulations. As such, cryptocurrency investors will generally not be able to rely on Forms 1099 for support or reconciliation of basis information. In the absence of broker records, some third-party applications may be able to assist a cryptocurrency investor compile tax and holdings data using exchange data and public keys. However, much like the asset class itself, these services are in their infancy and may not be available for all exchanges and cryptocurrencies, or could be costly, depending on the volume of cryptocurrency transactions to be analyzed. As a result, it is critical for investors to maintain independent basis records for proper tax reporting.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Overall, cryptocurrency is still an emerging asset class with a largely undefined tax framework. As a result, little authoritative guidance is available for investors with respect to basis tracking. Thus, investors should adopt a method that is both thorough and consistent based on what is known about current tax law, until further guidance becomes available from the IRS.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Form 1040 Schedule D and Form 8948
