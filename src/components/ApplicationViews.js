@@ -10,6 +10,7 @@ import LoginPage from './login/login';
 import BuyBitcoinNowForm from "./buySell/buy/buyNow"
 import SellPastTransactions from './buySell/sell/sellPast';
 import SellDetails from "./buySell/sell/sellDetails"
+import Callback from "./authentication/Callback"
 
 // import {LineChartDemo} from "./charts/testCharts"
 // import 'primereact/resources/themes/nova-light/theme.css';
@@ -75,7 +76,7 @@ export default class ApplicationViews extends Component {
 
   componentDidMount() {
     const newState = {}
-    let userId = "1"      //****set this in future with session storage at login****//
+    let userId =       //****set this in future with session storage at login****//
 
     priceAPI.getBTCprice().then((prices) => {
       newState.prices = prices;
@@ -97,13 +98,15 @@ export default class ApplicationViews extends Component {
 
       <div className="container-div" >
 
+      <Route exact path="/callback" component={Callback} />
+
         <Route exact path="/login" render={(props) => {
           return <LoginPage
             users={this.state.users} />
 
         }} />
 
-        <Route exact path="/" render={(props) => {
+        <Route exact path="/home" render={(props) => {
           return <HomePage
             users={this.state.users}
             transactions={this.state.transactions}
