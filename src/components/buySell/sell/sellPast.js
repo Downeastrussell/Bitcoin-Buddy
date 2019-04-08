@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import btcSymbol from "../../importedMedia/blackBTC1.png"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./txn.css"
+// import btcSymbol from "../../importedMedia/blackBTC1.png"
+// import "bootstrap/dist/css/bootstrap.min.css"
+// import "./txn.css"
 
 
 
-export default class TransactionList extends Component {
+export default class SellPastTransactions extends Component {
 
 
 
@@ -69,7 +69,7 @@ export default class TransactionList extends Component {
 
                                 <th id="2">Date Purchased</th>
                                 <th id="3">Cost Basis ($)</th>
-                                <th id="4"><img src={btcSymbol} alt="btc" className="icon--btx" /> Volume </th>
+                                <th id="4"> Volume </th>
                                 <th id="7">Proceeds from Sale</th>
                                 <th id="8">Date Sold</th>
                                 <th id="9">More Info</th>
@@ -83,36 +83,28 @@ export default class TransactionList extends Component {
 
                                 <tbody key={txn.id}>
                                     <tr key={txn.id}>
-
                                         <td >{txn.buyDate}</td>
                                         <td >{txn.buyPrice}</td>
                                         <td >{txn.volume}</td>
                                         <td >{(txn.sellPrice)}</td>
                                         <td >{txn.sellDate}</td>
-                                        <td > <Link className="nav-link" to={`/transactions/${txn.id}`}> Details</Link></td>
-
-
-
+                                        <td > <Link className="nav-link" to={`/sell/${txn.id}`}> Sell</Link></td>
                                     </tr>
                                 </tbody>
 
                             )
                         }
 
-
                         <tfoot>
                             <tr>
                                 <td>Totals:</td>
                                 <td>{costBasis}</td>
-                                <td> <img src={btcSymbol} alt="btc" className="icon--btx" /> {(totalBTC).toFixed(8)}</td>
+                                <td>{(totalBTC).toFixed(8)}</td>
                                 <td>{totalProceeds}</td>
                                 <td></td>
                                 <td></td>
                             </tr>
                         </tfoot>
-
-
-
 
                     </table>
 
@@ -120,8 +112,6 @@ export default class TransactionList extends Component {
                         onClick={()=>window.location.reload()}
                         className="card-link">Refresh</button>
 
-                    <h2>Current Bitcoin Price: ${currentBTCprice}</h2>
-                    <h3>Last Updated: {(lastestUpdateTime)}</h3>
 
                 </section>
             </React.Fragment>
@@ -131,19 +121,5 @@ export default class TransactionList extends Component {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

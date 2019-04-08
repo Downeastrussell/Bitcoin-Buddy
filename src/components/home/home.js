@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-// import btc from "../../importedMedia/bitcoin.png"
-import btc1 from "../../importedMedia/blackBTC1.png"
+import btcSymbol from "../../importedMedia/blackBTC1.png"
 import "./home.css"
 
 
@@ -8,37 +7,43 @@ import "./home.css"
 
 export default class HomePage extends Component {
     render() {
-        /*
-            Using the route parameter, find the animal that the
-            user clicked on by looking at the `this.props.animals`
-            collection that was passed down from ApplicationViews
-        */
+        let currentBTCprice = this.props.prices[0]
+        let lastestUpdateTime = this.props.prices[1]
 
-        let btcPrice = this.props.prices[0]
-        let btcDate = this.props.prices[1]
-
-        let totalUSDspent = 0;
-        this.props.transactions.map(x => {
-            if (Number(x.btc) > 0) {
-                console.log(totalUSDspent)
-                return totalUSDspent += Number(x.usd)
-            }
-        })
         let totalBTC = 0;
         this.props.transactions.map(x => {
-            return totalBTC += Number(x.btc)
+            return totalBTC += Number(x.volume)
         })
-        let totalUSDavaliable = 0;
+        let totalProceeds = 0;
         this.props.transactions.map(x => {
-            if (x.btc === "0") {
-                return totalUSDavaliable += Number(x.usd)
+            if (x.sellDate != null) {
+                return totalProceeds += Number(x.sellPrice)
             }
         })
-        let totalProfit = 0;
-        this.props.transactions.map(x=>{
-            return totalProfit += Number(x.profit)
+        let bitcoinSold = 0;
+        this.props.transactions.map(x => {
+            if (x.sellDate != null) {
+                return bitcoinSold += Number(x.volume)
+            }
         })
+        let costBasis = 0;
+        this.props.transactions.map(x => {
 
+                return costBasis += Number(x.buyPrice)
+
+        })
+        let unrealizedProfit = 0;
+        this.props.transactions.map(txn => {
+            if (txn.sellDate === null) {
+                return unrealizedProfit += (((Number(txn.volume)) * currentBTCprice)) - Number(txn.buyPrice)
+            }
+        })
+        let realizedProfit = 0;
+        this.props.transactions.map(txn => {
+            if (txn.sellDate != null) {
+                return realizedProfit += ((Number(txn.sellPrice)) - Number(txn.buyPrice))
+            }
+        })
 
 
 
@@ -53,8 +58,8 @@ export default class HomePage extends Component {
             <div className="container-profilecard">
 
                 <h1>Welcome to BitcoinBuddy</h1>
-                <h2>Current Bitcoin Price: ${btcPrice}</h2>
-                <h2>Last updated on: {btcDate}</h2>
+                <h2>Current Bitcoin Price: ${currentBTCprice}</h2>
+                <h2>Last updated on: {lastestUpdateTime}</h2>
 
                 <div key={this.props.users.id} className="card">
                     <img className="card" src={this.props.users.picture} alt={this.props.users.name}></img>
@@ -63,64 +68,19 @@ export default class HomePage extends Component {
                     <p><button>Change profile Picture</button></p>
 
                 </div>
+                    <h2>Total Cost Basis: ${(costBasis).toFixed(2)} </h2>
+                    <h2>Total Bitcoin Sold:  <img src={btcSymbol} alt="btc" className="icon--btx" /> {Number(bitcoinSold).toFixed(8)}</h2>
+                    <h2>Total Bitcoin Bought:  <img src={btcSymbol} alt="btc" className="icon--btx" />{Number(totalBTC).toFixed(8)}</h2>
+                    <h2>Unsold Bitcoin:  <img src={btcSymbol} alt="btc" className="icon--btx" />{Number(totalBTC-bitcoinSold).toFixed(8)}</h2>
+                    <h2>Value of Unsold Bitcoin: ${Number((totalBTC-bitcoinSold)*currentBTCprice).toFixed(2)}</h2>
+                    <h2>Total Unrealized Profit/Loss: ${(unrealizedProfit).toFixed(2)}</h2>
+                    <h2>Total Realized Profit: ${(realizedProfit).toFixed(2)}</h2>
+                    <h2>Net Proceeds: ${(totalProceeds).toFixed(2)}</h2>
+                    <br></br>
+                    <br></br>
+                    <h2>Current Bitcoin Price: ${currentBTCprice}</h2>
+                    <h3>Last Updated: {(lastestUpdateTime)}</h3>
 
-                <table className="cinereousTable">
-                    <thead>
-                        <tr>
-                            <th>Total Account Balance($USD): </th>
-                            <th>Total USD in Account</th>
-                            <th>Total Bitcoin in Account</th>
-                            <th>Unrealized profit/loss:</th>
-                            <th>Realized profit/loss:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>${((totalBTC * btcPrice) + totalUSDavaliable).toFixed(2)}</td>
-                            <td>${(totalUSDavaliable).toFixed(2)}</td>
-                            <td><img src={btc1} alt="btc"></img>{(totalBTC).toFixed(8)}</td>
-                            <td>${((totalUSDspent)-(totalBTC*btcPrice)).toFixed(2)}</td>
-                            <td>${(totalProfit).toFixed(2)}</td>
-                        </tr>
-                    </tbody>
-                    {/* <tbody>
-                        <tr>
-                            <td>cell1_1</td>
-                            <td>cell2_1</td>
-                            <td>cell3_1</td>
-                            <td>cell4_1</td>
-                            <td>cell5_1</td>
-                        </tr>
-                        <tr>
-                            <td>cell1_2</td>
-                            <td>cell2_2</td>
-                            <td>cell3_2</td>
-                            <td>cell4_2</td>
-                            <td>cell5_2</td>
-                        </tr>
-                        <tr>
-                            <td>cell1_3</td>
-                            <td>cell2_3</td>
-                            <td>cell3_3</td>
-                            <td>cell4_3</td>
-                            <td>cell5_3</td>
-                        </tr>
-                        <tr>
-                            <td>cell1_4</td>
-                            <td>cell2_4</td>
-                            <td>cell3_4</td>
-                            <td>cell4_4</td>
-                            <td>cell5_4</td>
-                        </tr>
-                        <tr>
-                            <td>cell1_5</td>
-                            <td>cell2_5</td>
-                            <td>cell3_5</td>
-                            <td>cell4_5</td>
-                            <td>cell5_5</td>
-                        </tr>
-                    </tbody> */}
-                </table>
             </div>
 
 

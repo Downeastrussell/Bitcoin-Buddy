@@ -2,15 +2,10 @@ import React, { Component } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./buy.css"
 
-
-
-
-export default class BuyBitcoinPastForm extends Component {
+export default class BuyBitcoinNowForm extends Component {
 
   state = {
-
-    priceHistory: [],
-    buyDate: "",
+    buyDate: this.props.prices[1],
     sellDate: null,
     buyPrice: "",
     sellPrice: null,
@@ -32,7 +27,7 @@ export default class BuyBitcoinPastForm extends Component {
 
   buildNewTxn = evt => {
     evt.preventDefault();
-    // let amoutOfBitcoin = (this.state.buyPrice) / (this.props.prices[0])
+    let amoutOfBitcoin = (this.state.buyPrice) / (this.props.prices[0])
     const txn = {
 
 
@@ -40,7 +35,7 @@ export default class BuyBitcoinPastForm extends Component {
       sellDate: this.state.sellDate,
       buyPrice: this.state.buyPrice,
       sellPrice: this.state.sellPrice,
-      volume: this.state.volume,
+      volume: JSON.stringify(amoutOfBitcoin),
       userId: this.state.userId,
 
 
@@ -57,13 +52,15 @@ export default class BuyBitcoinPastForm extends Component {
 
 
   render() {
+    let amoutOfBitcoin = (this.state.buyPrice) / (this.props.prices[0])
 
     return (
 
       <React.Fragment>
 
         <form className="buyForm">
-        <h1>Enter Historical Bitcoin Purchases and start tracking your Bitcoin Investment, Today! </h1>
+
+          <div><h1>Current Price of Bitcoin: ${this.props.prices[0]}</h1></div>
 
           <div className="form-group">
 
@@ -78,31 +75,16 @@ export default class BuyBitcoinPastForm extends Component {
 
 
           </div>
+
           <div className="form-group">
 
             <input
-              type="number"
+              type="hidden"
               className="form-control"
               id="volume"
-              onChange={this.handleFieldChange} />
-            <label htmlFor="volume">Amount of Bitcoin Purchased</label>
+              value={amoutOfBitcoin} />
+            <label htmlFor="volume"><h2>Press the 'Buy Now' button to purchase {amoutOfBitcoin} Bitcoin(s), Today!</h2></label>
           </div>
-
-          <div className="form-group">
-            <label htmlFor="buyDate">Buy Date</label>
-            <input
-              type="date"
-              required
-              className="form-control"
-              onChange={this.handleFieldChange}
-              id="buyDate"
-            />
-
-          </div>
-
-
-
-
 
 
 
@@ -112,13 +94,13 @@ export default class BuyBitcoinPastForm extends Component {
             onClick={this.buildNewTxn}
             className="btn btn-primary"
           >
-            Submit Historical Purchase
+            Submit
               </button>
         </form>
 
         <button
-              onClick={() => this.props.history.push('/buy/buyNow')}
-              className="card-link">Buy at Current Market Price!</button>
+          onClick={() => this.props.history.push('/buy')}
+          className="card-link">Go Back</button>
       </React.Fragment>
 
 
@@ -126,18 +108,4 @@ export default class BuyBitcoinPastForm extends Component {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

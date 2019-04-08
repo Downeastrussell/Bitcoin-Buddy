@@ -60,6 +60,10 @@ sellBTC(txn) {
   }).then(r => r.json());
 },
 
+getPriceHistory(){
+  return fetch(`${remoteURL}/priceHistory`).then(e => e.json())
+},
+
 
 
 
@@ -72,11 +76,11 @@ getBTCprice() {
   return fetch(`https://api.coindesk.com/v1/bpi/currentprice.json`).then(e => e.json())
 
 .then(parsed => {
-  let x =[parsed.bpi.USD.rate_float,parsed.time.updated]
+  let currentPrice =[parsed.bpi.USD.rate_float,parsed.time.updated]
 
 
-  console.log(x)
-  return x
+  console.log(currentPrice)
+  return currentPrice
 
 })},
 
