@@ -62,7 +62,7 @@ export default class TransactionList extends Component {
 
                 <section className="txn">
 
-                    <h1>Entire Transaction History</h1>
+                    <h1>Transaction History</h1>
                     <table className="cinereousTable">
                         <thead>
                             <tr>

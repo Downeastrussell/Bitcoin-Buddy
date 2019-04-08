@@ -62,7 +62,7 @@ export default class SellPastTransactions extends Component {
 
                 <section className="txn">
 
-                    <h1>Entire Transaction History</h1>
+                    <h1>Sell -- Transaction History</h1>
                     <table className="cinereousTable">
                         <thead>
                             <tr>
@@ -111,6 +111,12 @@ export default class SellPastTransactions extends Component {
                     <button
                         onClick={()=>window.location.reload()}
                         className="card-link">Refresh</button>
+
+
+                        <div>
+                            <h2>Current Price of Bitcoin ${currentBTCprice}</h2>
+                            <h2>Price Last Updated on {lastestUpdateTime}</h2>
+                        </div>
 
 
                 </section>

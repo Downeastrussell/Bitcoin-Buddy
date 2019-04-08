@@ -83,7 +83,7 @@ export default class BuyBitcoinNowForm extends Component {
               className="form-control"
               id="volume"
               value={amoutOfBitcoin} />
-            <label htmlFor="volume"><h2>Press the 'Buy Now' button to purchase {amoutOfBitcoin} Bitcoin(s), Today!</h2></label>
+            <label htmlFor="volume"><h2>Press the 'Buy Now' button to Record a Purchase of {amoutOfBitcoin} Bitcoin(s), Today!</h2></label>
           </div>
 
 

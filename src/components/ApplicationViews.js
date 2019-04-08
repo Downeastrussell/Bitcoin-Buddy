@@ -87,9 +87,9 @@ export default class ApplicationViews extends Component {
 
                   this.setState(newState)
                   console.log(newState)
-     });
+       });
     });
-   });
+  });
   }
 
   render() {
@@ -107,8 +107,7 @@ export default class ApplicationViews extends Component {
           return <HomePage
             users={this.state.users}
             transactions={this.state.transactions}
-            prices={this.state.prices}
-            priceHistory={this.state.priceHistory} />
+            prices={this.state.prices} />
 
         }} />
         <Route exact path="/transactions" render={(props) => {
@@ -116,7 +115,6 @@ export default class ApplicationViews extends Component {
             {...props}
             transactions={this.state.transactions}
             users={this.state.users}
-            priceHistory={this.state.priceHistory}
             prices={this.state.prices}
             donateTXN={this.donateTXN} />
         }} />
@@ -125,7 +123,6 @@ export default class ApplicationViews extends Component {
           return <TransactionDetail
             {...props}
             sellBTC={this.sellBTC}
-            priceHistory={this.state.priceHistory}
             donateTXN={this.donateTXN}
             transactions={this.state.transactions}
             prices={this.state.prices} />
@@ -136,8 +133,7 @@ export default class ApplicationViews extends Component {
             {...props}
             transactions={this.state.transactions}
             prices={this.state.prices}
-            buyBTC={this.buyBTC}
-            priceHistory={this.state.priceHistory}/>
+            buyBTC={this.buyBTC}/>
 
         }} />
         <Route exact path="/buy/buyNow" render={(props) => {
@@ -153,8 +149,7 @@ export default class ApplicationViews extends Component {
             {...props}
             transactions={this.state.transactions}
             prices={this.state.prices}
-            buyBTC={this.buyBTC}
-            priceHistory={this.state.priceHistory} />
+            buyBTC={this.buyBTC} />
 
         }} />
         <Route exact path="/sell/:transactionsId(\d+)" render={(props) => {

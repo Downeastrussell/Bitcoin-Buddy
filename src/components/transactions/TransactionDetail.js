@@ -66,14 +66,6 @@ export default class TransactionDetail extends Component {
                                 className="card-link">Delete
                             </button>
 
-                            {/* <button
-                                type="submit"
-                                onClick={this.buildSellTxn}
-                                className="btn btn-primary">
-
-                                Sell
-
-                                </button> */}
                             <button
                                 onClick={() => this.props.history.push('/transactions')}
                                 className="card-link">Go Back

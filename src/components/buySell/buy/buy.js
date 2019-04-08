@@ -118,7 +118,7 @@ export default class BuyBitcoinPastForm extends Component {
 
         <button
               onClick={() => this.props.history.push('/buy/buyNow')}
-              className="card-link">Buy at Current Market Price!</button>
+              className="card-link">Record a Bitcoin Purchase at the Current Market Price!</button>
       </React.Fragment>
 
 

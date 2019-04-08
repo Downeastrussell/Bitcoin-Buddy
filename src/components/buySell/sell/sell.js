@@ -101,6 +101,10 @@ export default class SellBitcoinForm extends Component {
             Sell
               </button>
         </form>
+        <button
+                                onClick={() => this.props.history.push(`/sell/${txn.id}`)}
+                                className="card-link">Go Back
+                            </button>
       </React.Fragment>
 
 

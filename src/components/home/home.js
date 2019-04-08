@@ -26,10 +26,16 @@ export default class HomePage extends Component {
                 return bitcoinSold += Number(x.volume)
             }
         })
+        let bitcoinUnSold = 0;
+        this.props.transactions.map(x => {
+            if (x.sellDate === null) {
+                return bitcoinUnSold += Number(x.volume)
+            }
+        })
         let costBasis = 0;
         this.props.transactions.map(x => {
 
-                return costBasis += Number(x.buyPrice)
+            return costBasis += Number(x.buyPrice)
 
         })
         let unrealizedProfit = 0;
@@ -44,6 +50,10 @@ export default class HomePage extends Component {
                 return realizedProfit += ((Number(txn.sellPrice)) - Number(txn.buyPrice))
             }
         })
+
+        console.log(totalProceeds)
+        console.log(bitcoinUnSold)
+        console.log(currentBTCprice)
 
 
 
@@ -61,26 +71,38 @@ export default class HomePage extends Component {
                 <h2>Current Bitcoin Price: ${currentBTCprice}</h2>
                 <h2>Last updated on: {lastestUpdateTime}</h2>
 
-                <div key={this.props.users.id} className="card">
-                    <img className="card" src={this.props.users.picture} alt={this.props.users.name}></img>
-                    <h1>{this.props.users.name}</h1>
-                    <p className="title">Creator of Bitcoin</p>
-                    <p><button>Change profile Picture</button></p>
+                <hr></hr>
 
-                </div>
-                    <h2>Total Cost Basis: ${(costBasis).toFixed(2)} </h2>
-                    <h2>Total Bitcoin Sold:  <img src={btcSymbol} alt="btc" className="icon--btx" /> {Number(bitcoinSold).toFixed(8)}</h2>
-                    <h2>Total Bitcoin Bought:  <img src={btcSymbol} alt="btc" className="icon--btx" />{Number(totalBTC).toFixed(8)}</h2>
-                    <h2>Unsold Bitcoin:  <img src={btcSymbol} alt="btc" className="icon--btx" />{Number(totalBTC-bitcoinSold).toFixed(8)}</h2>
-                    <h2>Value of Unsold Bitcoin: ${Number((totalBTC-bitcoinSold)*currentBTCprice).toFixed(2)}</h2>
-                    <h2>Total Unrealized Profit/Loss: ${(unrealizedProfit).toFixed(2)}</h2>
-                    <h2>Total Realized Profit: ${(realizedProfit).toFixed(2)}</h2>
-                    <h2>Net Proceeds: ${(totalProceeds).toFixed(2)}</h2>
-                    <br></br>
-                    <br></br>
-                    <h2>Current Bitcoin Price: ${currentBTCprice}</h2>
-                    <h3>Last Updated: {(lastestUpdateTime)}</h3>
+                <h1>Account Overview</h1>
+                <h2>Total Value of Account: ${(totalProceeds+((bitcoinUnSold)*(currentBTCprice))).toFixed(2)} </h2>
+                <h2>Total Profit and Loss: ${((realizedProfit)+(unrealizedProfit)).toFixed(2)}</h2>
 
+                <hr></hr>
+
+
+                <h1>Bitcoin Purchases</h1>
+                <h2>Total Cost Basis: ${(costBasis).toFixed(2)} </h2>
+                <h2>Total Bitcoin Bought:  <img src={btcSymbol} alt="btc" className="icon--btx" />{Number(totalBTC).toFixed(8)}</h2>
+
+                <hr></hr>
+
+                <h1>Info on Bitcoin Sales</h1>
+                <h2>Total Bitcoin Sold:  <img src={btcSymbol} alt="btc" className="icon--btx" /> {Number(bitcoinSold).toFixed(8)}</h2>
+                <h2>Total Realized Profit from Sales: ${(realizedProfit).toFixed(2)}</h2>
+                <h2>Net Proceeds: ${(totalProceeds).toFixed(2)}</h2>
+
+                <hr></hr>
+
+                <h1>Info on Unsold Bitcoin</h1>
+                <h2>Unsold Bitcoin:  <img src={btcSymbol} alt="btc" className="icon--btx" />{Number(totalBTC - bitcoinSold).toFixed(8)}</h2>
+                <h2>Value of Unsold Bitcoin: ${Number((totalBTC - bitcoinSold) * currentBTCprice).toFixed(2)}</h2>
+                <h2>Total Unrealized Profit/Loss: ${(unrealizedProfit).toFixed(2)}</h2>
+
+
+
+
+                <br></br>
+                <br></br>
             </div>
 
 
