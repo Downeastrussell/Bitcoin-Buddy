@@ -19,6 +19,9 @@ export default {
             ///////////////////////////////////////////////
             /////----Users Transaction API calls------/////
             ///////////////////////////////////////////////
+
+
+
   getUserTxn(userId) {
     return fetch(`${remoteURL}/transactions?userId=${userId}`).then(e => e.json())
   },
@@ -77,6 +80,7 @@ getBTCprice() {
 
 .then(parsed => {
   let currentPrice =[parsed.bpi.USD.rate_float,parsed.time.updated]
+
 
 
   console.log(currentPrice)

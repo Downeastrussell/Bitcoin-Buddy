@@ -79,23 +79,16 @@ class NavBar extends Component {
            <ul className="nav nav-pills">
 
                     <li className="nav-item">
-                        <Link className="nav-link" to="/home"><i className="material-icons">  account_balance </i>Account Overview</Link>
+                        <Link className="nav-link" to="/"><i className="material-icons">  account_balance </i>Account Overview</Link>
                     </li>
 
                     <li className="nav-item">
-                        <Link className="nav-link" to="/buy"><i className="material-icons">  show_chart </i>Buy</Link>
+                        <Link className="nav-link" to="/buy"> <i className="material-icons">folder_shared </i>Record Historical Transactions</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/transactions"> <i className="material-icons">  show_chart </i>Active Trading and Transaction History</Link>
                     </li>
 
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/sell"><i className="material-icons">  show_chart </i>Sell</Link>
-                    </li>
-
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/transactions"><i className="material-icons">  folder_shared </i>Transaction History</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/">Home</Link>
-                    </li>
            </ul>
          </React.Fragment>
        )}

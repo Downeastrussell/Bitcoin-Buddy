@@ -4,10 +4,7 @@ import btcSymbol from "../../importedMedia/blackBTC1.png"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./txn.css"
 
-
-
 export default class TransactionList extends Component {
-
 
 
     render() {
@@ -18,6 +15,7 @@ export default class TransactionList extends Component {
         this.props.transactions.map(x => {
             return totalBTC += Number(x.volume)
         })
+
         let totalProceeds = 0;
         this.props.transactions.map(x => {
             if (x.sellDate != null) {
@@ -33,7 +31,7 @@ export default class TransactionList extends Component {
         let costBasis = 0;
         this.props.transactions.map(x => {
 
-                return costBasis += Number(x.buyPrice)
+            return costBasis += Number(x.buyPrice)
 
         })
         let unrealizedProfit = 0;
@@ -52,11 +50,6 @@ export default class TransactionList extends Component {
         console.log(unrealizedProfit)
         console.log(currentBTCprice)
 
-
-
-
-
-
         return (
             <React.Fragment>
 
@@ -66,40 +59,30 @@ export default class TransactionList extends Component {
                     <table className="cinereousTable">
                         <thead>
                             <tr>
-
                                 <th id="2">Date Purchased</th>
                                 <th id="3">Cost Basis ($)</th>
                                 <th id="4"><img src={btcSymbol} alt="btc" className="icon--btx" /> Volume </th>
                                 <th id="7">Proceeds from Sale</th>
                                 <th id="8">Date Sold</th>
                                 <th id="9">More Info</th>
-
                             </tr>
                         </thead>
-
 
                         {
                             this.props.transactions.map(txn =>
 
                                 <tbody key={txn.id}>
                                     <tr key={txn.id}>
-
                                         <td >{txn.buyDate}</td>
                                         <td >{txn.buyPrice}</td>
                                         <td >{txn.volume}</td>
                                         <td >{(txn.sellPrice)}</td>
                                         <td >{txn.sellDate}</td>
-                                        <td > <Link className="nav-link" to={`/transactions/${txn.id}`}> Details</Link></td>
-
-
-
+                                        <td > <Link className="nav-link" to={`/transactions/${txn.id}`}>Sell/Details</Link></td>
                                     </tr>
                                 </tbody>
-
                             )
                         }
-
-
                         <tfoot>
                             <tr>
                                 <td>Totals:</td>
@@ -110,18 +93,28 @@ export default class TransactionList extends Component {
                                 <td></td>
                             </tr>
                         </tfoot>
-
-
-
-
                     </table>
 
+
+
+                    <hr></hr>
                     <button
-                        onClick={()=>window.location.reload()}
-                        className="card-link">Refresh</button>
+                                onClick={() => this.props.getPriceInfo()
+                                    .then(() => this.props.history.push('/transactions/buyNow'))}
+                                className="card-link">Record a Bitcoin Purchase at the Current Market Price!
+                            </button>
+                            <hr></hr>
+
+                    {/* <button
+                        onClick={() => this.props.history.push('/transactions/buyNow')}
+                        className="card-link">Record a Bitcoin Purchase at the Current Market Price!</button> */}
 
                     <h2>Current Bitcoin Price: ${currentBTCprice}</h2>
                     <h3>Last Updated: {(lastestUpdateTime)}</h3>
+                    <button
+                        onClick={() => this.props.getPriceInfo()}
+
+                        className="card-link">Refresh Price</button>
 
                 </section>
             </React.Fragment>

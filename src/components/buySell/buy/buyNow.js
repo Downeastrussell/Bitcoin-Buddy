@@ -10,7 +10,7 @@ export default class BuyBitcoinNowForm extends Component {
     buyPrice: "",
     sellPrice: null,
     volume: "",
-    userId: "1", //get this from session storage
+    userId: sessionStorage.getItem('credentials'), //get this from session storage
   };
 
 
@@ -99,7 +99,7 @@ export default class BuyBitcoinNowForm extends Component {
         </form>
 
         <button
-          onClick={() => this.props.history.push('/buy')}
+          onClick={() => this.props.history.push('/transactions')}
           className="card-link">Go Back</button>
       </React.Fragment>
 

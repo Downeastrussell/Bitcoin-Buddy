@@ -16,7 +16,7 @@ export default class SellBitcoinForm extends Component {
     buyPrice: "",
     sellPrice:"",
     volume: "",
-    userId: "1", //get this from session storage
+    userId: sessionStorage.getItem('credentials'), //get this from session storage
 
 
   };
@@ -48,10 +48,8 @@ export default class SellBitcoinForm extends Component {
 
     }
 
-    this.props
-
-      .sellBTC(txn)
-      .then(() => this.props.history.push("/sell"))
+    this.props.sellBTC(txn)
+      .then(() => this.props.history.push("/transactions"))
     console.log(txn)
   };
 
@@ -102,7 +100,7 @@ export default class SellBitcoinForm extends Component {
               </button>
         </form>
         <button
-                                onClick={() => this.props.history.push(`/sell/${txn.id}`)}
+                                onClick={() => this.props.history.push(`/transactions/${txn.id}`)}
                                 className="card-link">Go Back
                             </button>
       </React.Fragment>

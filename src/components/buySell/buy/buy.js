@@ -11,11 +11,11 @@ export default class BuyBitcoinPastForm extends Component {
 
     priceHistory: [],
     buyDate: "",
-    sellDate: null,
+    sellDate: "",
     buyPrice: "",
-    sellPrice: null,
+    sellPrice: "",
     volume: "",
-    userId: "1", //get this from session storage
+    userId: sessionStorage.getItem('credentials'), //get this from session storage
   };
 
 
@@ -63,11 +63,11 @@ export default class BuyBitcoinPastForm extends Component {
       <React.Fragment>
 
         <form className="buyForm">
-        <h1>Enter Historical Bitcoin Purchases and start tracking your Bitcoin Investment, Today! </h1>
+        <h1>Enter Historical Bitcoin Transactions and start tracking your Bitcoin Investment, Today! </h1>
 
           <div className="form-group">
 
-            <label htmlFor="buyPrice"></label>
+            <label htmlFor="buyPrice">Purchase Price</label>
             <input
               type="number"
               required
@@ -99,6 +99,31 @@ export default class BuyBitcoinPastForm extends Component {
             />
 
           </div>
+          <div className="form-group">
+
+            <label htmlFor="sellPrice">Proceeds from Sale</label>
+            <input
+              type="number"
+              required
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="sellPrice"
+              placeholder="Enter $ Dollar Amount" />
+
+
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="sellDate">Buy Date</label>
+            <input
+              type="date"
+              required
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="sellDate"
+            />
+
+          </div>
 
 
 
@@ -112,13 +137,11 @@ export default class BuyBitcoinPastForm extends Component {
             onClick={this.buildNewTxn}
             className="btn btn-primary"
           >
-            Submit Historical Purchase
+            Save Transaction
               </button>
         </form>
 
-        <button
-              onClick={() => this.props.history.push('/buy/buyNow')}
-              className="card-link">Record a Bitcoin Purchase at the Current Market Price!</button>
+
       </React.Fragment>
 
 

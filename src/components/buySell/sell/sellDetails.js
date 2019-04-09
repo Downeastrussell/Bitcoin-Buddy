@@ -6,7 +6,7 @@ export default class SellDetails extends Component {
 
 
     state = {
-        userId: "1"
+        userId: sessionStorage.getItem('credentials')
     }
 
 

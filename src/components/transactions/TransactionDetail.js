@@ -8,7 +8,7 @@ export default class TransactionDetail extends Component {
 
 
     state = {
-        userId: "1"
+        userId: sessionStorage.getItem('credentials')
     }
 
 
@@ -17,25 +17,23 @@ export default class TransactionDetail extends Component {
         evt.preventDefault();
         const txnToSell = this.props.transactions.find(a => a.id === parseInt(this.props.match.params.transactionsId)) || {}
         console.log(txnToSell)
+        const soldPrice = this.props.prices[0] * txnToSell.volume
+        console.log(soldPrice)
+
         const txn = {
             id: this.props.match.params.transactionsId,
             sellDate: this.props.prices[1],
             buyDate: txnToSell.buyDate,
             buyPrice: txnToSell.buyPrice,
-            sellPrice: (this.props.prices[0]) * (txnToSell.volume),
+            sellPrice: soldPrice.toString(),
             volume: txnToSell.volume,
             userId: this.state.userId,
-
-
         }
 
-        this.props
-
-            .sellBTC(txn)
+        this.props.sellBTC(txn)
             .then(() => this.props.history.push("/transactions"))
         console.log(txn)
     };
-
 
     render() {
 
@@ -61,6 +59,15 @@ export default class TransactionDetail extends Component {
                             <h6>Current Bitcoin Price: ${btcPrice}  Updated on {btcDate}</h6>
 
                             <button
+                                type="submit"
+                                onClick={this.buildSellTxn}
+                                className="btn btn-primary">
+
+                                Sell at Current Market Price
+
+                                </button>
+
+                            <button
                                 onClick={() => this.props.donateTXN(txn.id)
                                     .then(() => this.props.history.push("/transactions"))}
                                 className="card-link">Delete
@@ -70,6 +77,10 @@ export default class TransactionDetail extends Component {
                                 onClick={() => this.props.history.push('/transactions')}
                                 className="card-link">Go Back
                             </button>
+                            <button
+                                onClick={() => this.props.history.push(`/sell/${txn.id}/sellPast`)}
+                                className="card-link">Enter Historical Sell Information
+                                </button>
 
                         </div>
                     </div>
